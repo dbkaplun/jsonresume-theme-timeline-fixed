@@ -1,0 +1,81 @@
+/* ------------------------------------------------------------- */
+/* ---------------------------BRKOR----------------------------- */
+/* ------------------------------------------------------------- */
+/* ------------------------ Dark theme ------------------------- */
+
+body {
+    background: url('../img/bg-dark.png');
+    background-position: top center;
+    background-attachment: fixed;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+a:hover, 
+a:active, 
+a:focus {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+nav ul {
+    border-left: 4px solid rgba(0, 0, 0, 0.05);
+}
+
+
+nav ul li {
+    list-style-image: url('../img/list-style-nav.png');
+}
+
+nav ul li:hover {
+    list-style-image: url('../img/list-style-nav-white-on.png');
+    color: #fff;
+}
+
+nav ul li:hover a {
+    color: #fff;
+}
+
+nav ul li.active {
+    list-style-image: url('../img/list-style-nav-white-on.png');
+    color: #fff;
+}
+
+nav li a {
+    border-bottom: 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+nav .active a {
+    color: #fff;
+}
+
+.header-name {
+    background-color: #fff;
+    color: #000;
+}
+
+.dismiss:hover {
+    color: #000;
+}
+
+.form-control {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-group-addon {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+}
