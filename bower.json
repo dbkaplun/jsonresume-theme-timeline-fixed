@@ -1,0 +1,24 @@
+{
+  "name": "jsonresume-theme-timeline-beardtree",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/beardtree/jsonresume-theme-timeline-beardtree",
+  "authors": [
+    "Dan Kaplun <dan@beardtree.com>"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "easypie": "~2.1.4",
+    "modernizr": "~2.8.3",
+    "bootstrap": "~3.2.0",
+    "bootstrap-progressbar": "~0.8.3"
+  }
+}
