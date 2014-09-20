@@ -153,18 +153,16 @@
                     <div class="col-sm-7 col-sm-offset-5">
                         <ul>
                             <li class="title"><span class="glyphicon glyphicon-heart-empty"></span>Interests</li>
+                            {{#resume.interests}}
                             <li>
-                                <p><strong>Books</strong></p>
-                                <p class="description">Vestibulum ut pharetra diam, vitae hendrerit sapien. Praesent porttitor augue nec semper suscipit. Nulla et cursus lectus. Praesent vel feugiat dolor.</p>
+                                <p><strong>{{name}}</strong></p>
+                                <div>
+                                    {{#keywords}}
+                                    <span class="label label-default">{{.}}</span>
+                                    {{/keywords}}
+                                </div>
                             </li>
-                            <li>
-                                <p><strong>Art</strong></p>
-                                <p class="description">Donec vel nulla mollis, mattis orci vel, vulputate tellus. Cras interdum sapien quis risus mattis egestas. Etiam rhoncus lacus turpis, in vulputate arcu imperdiet non.</p>
-                            </li>
-                            <li>
-                                <p><strong>Basketball</strong></p>
-                                <p class="description">Maecenas velit eros, congue quis accumsan sed, consequat id magna. Pellentesque at auctor lacus.</p>
-                            </li>
+                            {{/resume.interests}}
                         </ul>
                     </div>
                 </div>
