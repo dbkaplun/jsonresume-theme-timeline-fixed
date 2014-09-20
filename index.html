@@ -63,18 +63,18 @@
         <header id="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <div class="header-content col-sm-8 col-sm-offset-2 text-center">
                         {{#resume.basics}}
                         <img src="{{#picture}}{{picture}}{{/picture}}{{^picture}}{{gravatar}}{{/picture}}" class="face" alt="A picture of me">
                         <hr class="empty">
                         <p class="header-name">{{name}}</p>
+                        <p class="header-subtitle">{{{summary}}}</p>
                         <p><a href="mailto:{{email}}" target="_blank">{{email}}</a> &bull; {{phone}} &bull; <a href="mailto:{{website}}" target="_blank">{{website}}</a></p>
                         <p>
                         {{#profiles}}
                             <a href="{{url}}" class="btn btn-default" target="_blank"><span class="fa fa-{{networkIcon}}"></span></a>
                         {{/profiles}}
                         </p>
-                        <p class="header-subtitle">{{{summary}}}</p>
                         {{/resume.basics}}
                     </div>
                 </div>
