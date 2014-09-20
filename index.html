@@ -68,10 +68,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text-center">
-                        <img src="{{resume.bio.gravatar}}" class="face" alt="">
+                        {{#resume.basics}}
+                        <img src="{{#picture}}{{picture}}{{/picture}}{{^picture}}{{gravatar}}{{/picture}}" class="face" alt="A picture of me">
                         <hr class="empty">
-                        <p class="header-name">{{resume.bio.firstName}} {{resume.bio.lastName}}</p>
-                        <p class="header-subtitle">{{resume.bio.summary}}</p>
+                        <p class="header-name">{{name}}</p>
+                        <p class="header-subtitle">{{{summary}}}</p>
+                        {{/resume.basics}}
                     </div>
                 </div>
             </div>
@@ -87,7 +89,7 @@
                             <li class="title"><span class="glyphicon glyphicon-user"></span>Profile</li>
                             <li>
                                 <span class="note">Full name</span>
-                                <p><strong>{{resume.bio.firstName}} {{resume.bio.lastName}}</strong></p>
+                                <p><strong>{{resume.basics.name}}</strong></p>
                             </li>
 
 
