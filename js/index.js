@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: '//cdn.rawgit.com/beardtree/jsonresume-theme-timeline-beardtree/master/bower_components',
+  baseUrl: '//rawgit.com/beardtree/jsonresume-theme-timeline-beardtree/master/bower_components',
   paths: {
     modernizr: 'modernizr/modernizr',
     jquery: 'jquery/dist/jquery',
