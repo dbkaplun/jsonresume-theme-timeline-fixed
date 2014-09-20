@@ -16,6 +16,7 @@
 
         <!-- style sheets-->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
+        <link href="//cdn.rawgit.com/beardtree/jsonresume-theme-timeline-beardtree/master/bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="//cdn.rawgit.com/beardtree/jsonresume-theme-timeline-beardtree/master/css/theme.css" rel="stylesheet" type="text/css">
 
         <!-- scripts-->
@@ -68,6 +69,11 @@
                         <hr class="empty">
                         <p class="header-name">{{name}}</p>
                         <p><a href="mailto:{{email}}" target="_blank">{{email}}</a> &bull; {{phone}} &bull; <a href="mailto:{{website}}" target="_blank">{{website}}</a></p>
+                        <p>
+                        {{#profiles}}
+                            <a href="{{url}}" class="btn btn-default" target="_blank"><span class="fa fa-{{networkIcon}}"></span></a>
+                        {{/profiles}}
+                        </p>
                         <p class="header-subtitle">{{{summary}}}</p>
                         {{/resume.basics}}
                     </div>

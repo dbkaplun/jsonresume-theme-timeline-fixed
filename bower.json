@@ -19,6 +19,7 @@
     "easypie": "~2.1.4",
     "modernizr": "~2.8.3",
     "bootstrap": "~3.2.0",
-    "bootstrap-progressbar": "~0.8.3"
+    "bootstrap-progressbar": "~0.8.3",
+    "fontawesome": "~4.2.0"
   }
 }

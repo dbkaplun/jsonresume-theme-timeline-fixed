@@ -55,13 +55,17 @@ fs.writeFileSync('theme.css', cssbootstrap + csscustom);
 
   var template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf8');
 
-  if(resume.basics && resume.basics.email && resume.basics.email) {
+  if (resume.basics && resume.basics.email && resume.basics.email) {
     resume.basics.gravatar = gravatar.url(resume.basics.email, {
       s: '200',
       r: 'pg',
       d: 'mm'
     });
   }
+  resume.basics.profiles = (resume.basics.profiles || []).map(function (profile) {
+    profile.networkIcon = profile.network.toLowerCase();
+    return profile;
+  });
   return Mustache.render(template, {resume: resume, css: css, js: js});
 }
 module.exports = { render: render };
