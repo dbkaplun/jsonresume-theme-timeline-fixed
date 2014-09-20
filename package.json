@@ -3,12 +3,21 @@
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "sh -c 'gulp watch & resume serve'",
+    "test": "gulp test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "execSync": "^1.0.2",
     "gravatar": "^1.0.6",
+    "gulp": "^3.8.8",
+    "gulp-flatten": "0.0.3",
+    "gulp-jshint": "^1.8.4",
+    "gulp-less": "^1.3.6",
+    "gulp-requirejs": "^0.1.3",
+    "gulp-uglify": "^1.0.1",
+    "jshint-stylish": "^1.0.0",
     "lodash": "^2.4.1",
     "mustache": "^0.8.2",
     "resume-schema": "0.0.11"

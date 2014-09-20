@@ -4,12 +4,11 @@ var path = require('path');
 var _ = require('lodash');
 var Mustache = require('mustache');
 var gravatar = require('gravatar');
-
+var sh = require('execSync');
 
 function render (resume) {
-
-	var csstheme = fs.readFileSync(path.resolve(__dirname, 'css','theme.css'), 'utf8');
-
+  var css = fs.readFileSync(path.resolve(__dirname, 'css', 'theme.css'), 'utf8');
+  var js = fs.readFileSync(path.resolve(__dirname, 'js', 'index.js'), 'utf8');
 
  /*
 var files = {};
@@ -54,15 +53,15 @@ fs.writeFileSync('theme.css', cssbootstrap + csscustom);
 */
 
 
-	var template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf8');
-	if(resume.bio && resume.bio.email && resume.bio.email.personal) {
-	resume.bio.gravatar = gravatar.url(resume.bio.email.personal, {
-                    s: '200',
-                    r: 'pg',
-                    d: 'mm'
-                });
-	}
-	var html = Mustache.render(template, {resume:resume, csstheme:csstheme}	);
-    return html;
+  var template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf8');
+
+  if(resume.bio && resume.bio.email && resume.bio.email.personal) {
+    resume.bio.gravatar = gravatar.url(resume.bio.email.personal, {
+      s: '200',
+      r: 'pg',
+      d: 'mm'
+    });
+  }
+  return Mustache.render(template, {resume: resume, css: css, js: js});
 }
 module.exports = { render: render };
