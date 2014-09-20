@@ -7,10 +7,7 @@ var gravatar = require('gravatar');
 var sh = require('execSync');
 
 function render (resume) {
-  var css = fs.readFileSync(path.resolve(__dirname, 'css', 'theme.css'), 'utf8');
-  var js = fs.readFileSync(path.resolve(__dirname, 'js', 'index.js'), 'utf8');
-
- /*
+/*
 var files = {};
 csscustom = csscustom.replace(/url\(["']?(\S*)\.(png|jpg|jpeg|gif)["']?\)/g, function(match, file, type)
 {
@@ -49,7 +46,6 @@ cssbootstrap = cssbootstrap.replace(/url\(["']?(\S*)\.(png|jpg|jpeg|gif)["']?\)/
   }
 });
 fs.writeFileSync('theme.css', cssbootstrap + csscustom);
-
 */
 
 
@@ -66,6 +62,6 @@ fs.writeFileSync('theme.css', cssbootstrap + csscustom);
     profile.networkIcon = profile.network.toLowerCase();
     return profile;
   });
-  return Mustache.render(template, {resume: resume, css: css, js: js});
+  return Mustache.render(template, {resume: resume});
 }
 module.exports = { render: render };

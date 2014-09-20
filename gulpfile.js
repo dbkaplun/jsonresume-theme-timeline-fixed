@@ -17,12 +17,14 @@ var dest = './build';
 var paths = {
   src: {
     js: 'js/',
-    less: 'css/custom.css',
+    less: 'less/index.less',
+    images: 'img/**',
     fonts: '**/*.{ttf,woff,eof,svg}'
   },
   dest: {
     js: path.join(dest, 'js'),
     css: path.join(dest, 'css'),
+    images: path.join(dest, 'img'),
     fonts: path.join(dest, 'fonts'),
   },
 
@@ -84,15 +86,19 @@ gulp.task('build-js', function () {
 //    // }))
 //    .pipe(gulp.dest(paths.dest.js));
 });
-gulp.task('build-less', ['build-fonts'], function () {
-  gulp.src(paths.src.less)
-    .pipe(less({paths: [], compress: true}))
-    .pipe(gulp.dest(paths.dest.css));
+gulp.task('build-images', function () {
+  gulp.src(paths.src.images)
+    .pipe(gulp.dest(paths.dest.images));
 });
 gulp.task('build-fonts', function () {
   gulp.src(paths.src.fonts)
     .pipe(flatten())
     .pipe(gulp.dest(paths.dest.fonts));
+});
+gulp.task('build-less', ['build-images', 'build-fonts'], function () {
+  gulp.src(paths.src.less)
+    .pipe(less({paths: [], compress: true}))
+    .pipe(gulp.dest(paths.dest.css));
 });
 gulp.task('build', ['build-js', 'build-less', 'build-fonts']);
 gulp.task('watch', ['build'], function () {
