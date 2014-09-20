@@ -84,10 +84,14 @@
                             <li class="title"><span class="glyphicon glyphicon-briefcase"></span>Work experience</li>
                             {{#resume.work}}
                             <li>
-                                <span class="note">June 2012 - Current</span>
-                                <p><strong>{{company}}</strong></p>
-                                <p><strong>{{position}}</strong> in Melbourne, AU</p>
+                                <span class="note">{{startDate}} - {{endDate}}</span>
+                                <p><strong>{{position}}</strong> at <strong><a href="{{website}}">{{company}}</a></strong></p>
                                 <p class="description">{{summary}}</p>
+                                <ul>
+                                {{#highlights}}
+                                    <li>{{.}}</li>
+                                {{/highlights}}
+                                </ul>
                             </li>
                             {{/resume.work}}
                         </ul>
