@@ -85,7 +85,7 @@
                             {{#resume.work}}
                             <li>
                                 <span class="note">{{startDate}} - {{endDate}}</span>
-                                <p><strong>{{position}}</strong> at <strong><a href="{{website}}">{{company}}</a></strong></p>
+                                <p><strong>{{position}}</strong> at <strong><a href="{{website}}" target="_blank">{{company}}</a></strong></p>
                                 <p class="description">{{summary}}</p>
                                 <ul>
                                 {{#highlights}}
@@ -108,18 +108,13 @@
                     <div class="col-sm-7 col-sm-offset-5">
                         <ul>
                             <li class="title"><span class="glyphicon glyphicon-book"></span>Education</li>
+                            {{#resume.education}}
                             <li>
-                                <span class="note">January 2005 - December 2008</span>
-                                <p><strong>Masters Degree</strong></p>
-                                <p><strong>University of IT</strong> in Melbourne, Australia</p>
-                                <p class="description">Vestibulum ut pharetra diam, vitae hendrerit sapien. Praesent porttitor augue nec semper suscipit. Nulla et cursus lectus. Praesent vel feugiat dolor.</p>
+                                <span class="note">{{startDate}} - {{endDate}}</span>
+                                <p><strong>{{studyType}}</strong>{{#studyType}} at {{/studyType}}<strong><a href="{{website}}" target="_blank">{{institution}}</a></strong></p>
+                                <p class="description">{{area}}</p>
                             </li>
-                            <li>
-                                <span class="note">January 2002 - December 2005</span>
-                                <p><strong>Bachelors Degree</strong></p>
-                                <p><strong>University of IT</strong> in Melbourne, Australia</p>
-                                <p class="description">Donec vel nulla mollis, mattis orci vel, vulputate tellus. Cras interdum sapien quis risus mattis egestas. Etiam rhoncus lacus turpis, in vulputate arcu imperdiet non.</p>
-                            </li>
+                            {{/resume.education}}
                         </ul>
                     </div>
                 </div>
