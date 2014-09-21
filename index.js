@@ -50,7 +50,7 @@ fs.writeFileSync('theme.css', cssbootstrap + csscustom);
 */
 
 
-  var template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf8');
+  var template = fs.readFileSync(path.resolve(__dirname, 'index.mustache'), 'utf8');
 
   if (resume.basics && resume.basics.email && resume.basics.email) {
     resume.basics.gravatar = gravatar.url(resume.basics.email, {
