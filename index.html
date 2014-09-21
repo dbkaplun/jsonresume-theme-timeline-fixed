@@ -39,15 +39,24 @@
                 {{#resume.education.length}}
                 <li><a href="#education">Education</a></li>
                 {{/resume.education.length}}
+                {{#resume.awards.length}}
+                <li><a href="#awards">Awards</a></li>
+                {{/resume.awards.length}}
+                {{#resume.portfolio.length}}
+                <li><a href="#portfolio">Portfolio</a></li>
+                {{/resume.portfolio.length}}
                 {{#resume.skills.length}}
                 <li><a href="#skills">Skills</a></li>
                 {{/resume.skills.length}}
                 {{#resume.interests.length}}
                 <li><a href="#interests">Interests</a></li>
                 {{/resume.interests.length}}
-                {{#resume.portfolio.length}}
-                <li><a href="#portfolio">Portfolio</a></li>
-                {{/resume.portfolio.length}}
+                {{#resume.languages.length}}
+                <li><a href="#languages">Languages</a></li>
+                {{/resume.languages.length}}
+                {{#resume.references.length}}
+                <li><a href="#references">References</a></li>
+                {{/resume.references.length}}
             </ul>
         </nav>
         <!-- end Navigation -->
@@ -64,15 +73,24 @@
                         {{#resume.education.length}}
                         <li><a href="#education">Education</a></li>
                         {{/resume.education.length}}
+                        {{#resume.awards.length}}
+                        <li><a href="#awards">Awards</a></li>
+                        {{/resume.awards.length}}
+                        {{#resume.portfolio.length}}
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        {{/resume.portfolio.length}}
                         {{#resume.skills.length}}
                         <li><a href="#skills">Skills</a></li>
                         {{/resume.skills.length}}
                         {{#resume.interests.length}}
                         <li><a href="#interests">Interests</a></li>
                         {{/resume.interests.length}}
-                        {{#resume.portfolio.length}}
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        {{/resume.portfolio.length}}
+                        {{#resume.languages.length}}
+                        <li><a href="#languages">Languages</a></li>
+                        {{/resume.languages.length}}
+                        {{#resume.references.length}}
+                        <li><a href="#references">References</a></li>
+                        {{/resume.references.length}}
                     </ul>
                 </li>
               </ul>
@@ -153,62 +171,28 @@
         <!-- end Education -->
         {{/resume.education.length}}
 
-        {{#resume.skills.length}}
-        <!-- Skills -->
-        <section id="skills" class="skills">
+        {{#resume.awards.length}}
+        <!-- Awards -->
+        <section id="awards" class="awards">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-7 col-sm-offset-5">
                         <ul>
-                            <li class="title"><span class="glyphicon glyphicon-tasks"></span>Skills</li>
-                            {{#resume.skills}}
+                            <li class="title"><span class="glyphicon glyphicon-star"></span>Awards</li>
+                            {{#resume.awards}}
                             <li>
-                                <p>{{name}}<span class="annotation pull-right">{{level}}</span></p>
-                                <div>
-                                    {{#keywords}}
-                                    <span class="label label-default">{{.}}</span>
-                                    {{/keywords}}
-                                </div>
+                                <span class="note">{{dateReadable}}</span> <span class="annotation">{{awarder}}</span>
+                                <p><strong><a href="{{website}}" target="_blank">{{title}}</a></strong></p>
+                                <p class="description">{{summary}}</p>
                             </li>
-                            {{/resume.skills}}
+                            {{/resume.awards}}
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- end Skills -->
-        {{/resume.skills.length}}
-
-        {{#resume.interests.length}}
-        <!-- Interests -->
-        <section id="interests" class="interests">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-heart-empty"></span>Interests</li>
-                            {{#resume.interests}}
-                            <li>
-                                <p><strong>{{name}}</strong></p>
-                                <div>
-                                    {{#keywords}}
-                                    <span class="label label-default">{{.}}</span>
-                                    {{/keywords}}
-                                </div>
-                            </li>
-                            {{/resume.interests}}
-                        </ul>
-                    </div>
-                    <div class="contact col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li><div class="title up"><span class="glyphicon glyphicon-arrow-up"></span>Up</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end Interests -->
-        {{/resume.interests.length}}
+        <!-- end Education -->
+        {{/resume.awards.length}}
 
         {{#resume.portfolio.length}}
         <!-- Portfolio -->
@@ -262,5 +246,113 @@
         </div>
         <!-- end Modal - photos in zoom-->
         {{/resume.portfolio.length}}
+
+        {{#resume.skills.length}}
+        <!-- Skills -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-5">
+                        <ul>
+                            <li class="title"><span class="glyphicon glyphicon-tasks"></span>Skills</li>
+                            {{#resume.skills}}
+                            <li>
+                                <p>{{name}}<span class="annotation pull-right">{{level}}</span></p>
+                                <div>
+                                    {{#keywords}}
+                                    <span class="label label-default">{{.}}</span>
+                                    {{/keywords}}
+                                </div>
+                            </li>
+                            {{/resume.skills}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end Skills -->
+        {{/resume.skills.length}}
+
+        {{#resume.interests.length}}
+        <!-- Interests -->
+        <section id="interests" class="interests">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-5">
+                        <ul>
+                            <li class="title"><span class="glyphicon glyphicon-heart-empty"></span>Interests</li>
+                            {{#resume.interests}}
+                            <li>
+                                <p><strong>{{name}}</strong></p>
+                                <div>
+                                    {{#keywords}}
+                                    <span class="label label-default">{{.}}</span>
+                                    {{/keywords}}
+                                </div>
+                            </li>
+                            {{/resume.interests}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end Interests -->
+        {{/resume.interests.length}}
+
+        {{#resume.languages.length}}
+        <!-- Languages -->
+        <section id="languages" class="languages">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-5">
+                        <ul>
+                            <li class="title"><span class="glyphicon glyphicon-globe"></span>Languages</li>
+                            {{#resume.languages}}
+                            <li>
+                                <strong>{{language}}</strong> <span class="annotation">{{fluency}}</span>
+                            </li>
+                            {{/resume.languages}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end Languages -->
+        {{/resume.languages.length}}
+
+        {{#resume.references.length}}
+        <!-- References -->
+        <section id="references" class="references">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-5">
+                        <ul>
+                            <li class="title"><span class="glyphicon glyphicon-thumbs-up"></span>References</li>
+                            {{#resume.references}}
+                            <li>
+                                <blockquote><p>{{reference}}</p>
+                                    <small>{{name}}</small>
+                                </blockquote>
+                            </li>
+                            {{/resume.references}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end References -->
+        {{/resume.references.length}}
+
+        <section class="up">
+            <div class="container">
+                <div class="row">
+                    <div class="contact col-sm-7 col-sm-offset-5">
+                        <ul>
+                            <li class="title"><span class="glyphicon glyphicon-arrow-up"></span>Up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
