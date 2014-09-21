@@ -91,7 +91,7 @@
                             <li class="title"><span class="glyphicon glyphicon-briefcase"></span>Work experience</li>
                             {{#resume.work}}
                             <li>
-                                <span class="note">{{startDate}} - {{endDate}}</span>
+                                <span class="note">{{startDateReadable}} - {{endDateReadable}}</span>
                                 <p><strong>{{position}}</strong> at <strong><a href="{{website}}" target="_blank">{{company}}</a></strong></p>
                                 <p class="description">{{summary}}</p>
                                 <ul>
@@ -117,7 +117,7 @@
                             <li class="title"><span class="glyphicon glyphicon-book"></span>Education</li>
                             {{#resume.education}}
                             <li>
-                                <span class="note">{{startDate}} - {{endDate}}</span>
+                                <span class="note">{{startDateReadable}} - {{endDateReadable}}</span>
                                 <p><strong>{{studyType}}</strong>{{#studyType}} at {{/studyType}}<strong><a href="{{website}}" target="_blank">{{institution}}</a></strong></p>
                                 <p class="description">{{area}}</p>
                             </li>

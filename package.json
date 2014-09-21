@@ -19,6 +19,7 @@
     "gulp-uglify": "^1.0.1",
     "jshint-stylish": "^1.0.0",
     "lodash": "^2.4.1",
+    "moment": "^2.8.3",
     "mustache": "^0.8.2",
     "resume-schema": "0.0.11"
   }

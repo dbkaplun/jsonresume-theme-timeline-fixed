@@ -4,6 +4,7 @@ var path = require('path');
 var _ = require('lodash');
 var Mustache = require('mustache');
 var gravatar = require('gravatar');
+var moment = require('moment');
 var sh = require('execSync');
 
 function render (resume) {
@@ -62,6 +63,28 @@ fs.writeFileSync('theme.css', cssbootstrap + csscustom);
     profile.networkIcon = profile.network.toLowerCase();
     return profile;
   });
+  [{
+    keys: ['startDate', 'endDate'],
+    sections: [resume.work, resume.education]
+  }, {
+    keys: ['date'],
+    sections: [resume.awards]
+  }].forEach(function (opts) {
+    opts.sections
+      .filter(Boolean)
+      .forEach(function (section) {
+        section.forEach(function (event) {
+          opts.keys.forEach(function (key) {
+            if (event[key]) {
+              event[key + 'Readable'] = moment(event[key]).format('MMMM YYYY');
+            } else {
+              console.log("no " + key + " in " + JSON.stringify(event));
+            }
+          });
+        });
+      });
+  });
+
   return Mustache.render(template, {resume: resume});
 }
 module.exports = { render: render };
