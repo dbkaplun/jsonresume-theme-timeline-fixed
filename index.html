@@ -33,11 +33,21 @@
         <!-- Navigation -->
         <nav id="spy" class="spy hidden-sm hidden-xs">
             <ul>
+                {{#resume.work.length}}
                 <li class="active"><a href="#work-experience">Work experience</a></li>
+                {{/resume.work.length}}
+                {{#resume.education.length}}
                 <li><a href="#education">Education</a></li>
+                {{/resume.education.length}}
+                {{#resume.skills.length}}
                 <li><a href="#skills">Skills</a></li>
+                {{/resume.skills.length}}
+                {{#resume.interests.length}}
                 <li><a href="#interests">Interests</a></li>
-                {{!<li><a href="#portfolio">Portfolio</a></li>}}
+                {{/resume.interests.length}}
+                {{#resume.portfolio.length}}
+                <li><a href="#portfolio">Portfolio</a></li>
+                {{/resume.portfolio.length}}
             </ul>
         </nav>
         <!-- end Navigation -->
@@ -48,11 +58,21 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">Menu</a>
                     <ul class="dropdown-menu">
+                        {{#resume.work.length}}
                         <li class="active"><a href="#work-experience">Work experience</a></li>
+                        {{/resume.work.length}}
+                        {{#resume.education.length}}
                         <li><a href="#education">Education</a></li>
+                        {{/resume.education.length}}
+                        {{#resume.skills.length}}
                         <li><a href="#skills">Skills</a></li>
+                        {{/resume.skills.length}}
+                        {{#resume.interests.length}}
                         <li><a href="#interests">Interests</a></li>
-                        {{!<li><a href="#portfolio">Portfolio</a></li>}}
+                        {{/resume.interests.length}}
+                        {{#resume.portfolio.length}}
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        {{/resume.portfolio.length}}
                     </ul>
                 </li>
               </ul>
@@ -82,6 +102,7 @@
         </header>
         <!-- end Header -->
 
+        {{#resume.work.length}}
         <!-- Work experience -->
         <section id="work-experience" class="work-experience">
             <div class="container">
@@ -107,7 +128,9 @@
             </div>
         </section>
         <!-- end Work experience -->
+        {{/resume.work.length}}
 
+        {{#resume.education.length}}
         <!-- Education -->
         <section id="education" class="education">
             <div class="container">
@@ -128,7 +151,9 @@
             </div>
         </section>
         <!-- end Education -->
+        {{/resume.education.length}}
 
+        {{#resume.skills.length}}
         <!-- Skills -->
         <section id="skills" class="skills">
             <div class="container">
@@ -152,7 +177,9 @@
             </div>
         </section>
         <!-- end Skills -->
+        {{/resume.skills.length}}
 
+        {{#resume.interests.length}}
         <!-- Interests -->
         <section id="interests" class="interests">
             <div class="container">
@@ -181,7 +208,9 @@
             </div>
         </section>
         <!-- end Interests -->
-{{!
+        {{/resume.interests.length}}
+
+        {{#resume.portfolio.length}}
         <!-- Portfolio -->
         <section id="portfolio" class="portfolio">
             <div class="container">
@@ -232,6 +261,6 @@
             </div>
         </div>
         <!-- end Modal - photos in zoom-->
-}}
+        {{/resume.portfolio.length}}
     </body>
 </html>
