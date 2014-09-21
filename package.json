@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "execSync": "^1.0.2",
     "gravatar": "^1.0.6",
     "gulp": "^3.8.8",
     "gulp-flatten": "0.0.3",
