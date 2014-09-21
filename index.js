@@ -5,7 +5,6 @@ var _ = require('lodash');
 var Mustache = require('mustache');
 var gravatar = require('gravatar');
 var moment = require('moment');
-var sh = require('execSync');
 
 function render (resume) {
 /*
