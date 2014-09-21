@@ -7,12 +7,12 @@ require([
 
   jQuery(function ($) {
     // Up - go to top
-    $('.up').click(function(){
+    $('.up').click(function () {
       $('html, body').animate({scrollTop: 0}, 1000);
     });
 
     // Contact button - go to contact
-    $('.top-contact').click(function(){
+    $('.top-contact').click(function () {
       $('html, body').animate({
         scrollTop: $("#contact").offset().top
       }, 1000);
@@ -35,6 +35,10 @@ require([
       $('#dark').remove();
       $('.settings .btn').removeClass('active');
       $('.top-white').addClass('active');
+    });
+
+    $('.top-print').click(function () {
+      window.print();
     });
 
     // Tooltip 
