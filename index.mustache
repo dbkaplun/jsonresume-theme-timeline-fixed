@@ -9,8 +9,8 @@
 
     <head>
         <meta charset="utf-8">
-        <meta name="description" content="description" />
-        <meta name="keywords" content="keywords"/>
+        <meta name="description" content="{{name}}'s resume" />
+        <meta name="keywords" content="{{name}}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <title>{{#resume.basics}}{{name}} &bull; {{email}} &bull; {{phone}}{{/resume.basics}}</title>
 
@@ -24,15 +24,15 @@
     </head>
     <body>
         <!-- Top icons -->
-        <div class="top-icons">
-            <a class="top-menu hidden-xs hidden-sm" data-toggle="tooltip" data-placement="top" title="Menu toggle"><span class="glyphicon glyphicon-th-list"></span></a>
-            <a href="#" class="top-download-resume hidden-xs hidden-sm" data-toggle="tooltip" data-placement="top" title="Download resume"><span class="glyphicon glyphicon-cloud-download"></span></a>
-            <a href="#" class="top-print hidden-xs hidden-sm" data-toggle="tooltip" data-placement="top" title="Print resume"><span class="glyphicon glyphicon-print"></span></a>
+        <div class="top-icons hidden-xs hidden-sm hidden-print">
+            <a class="top-menu" data-toggle="tooltip" data-placement="top" title="Menu toggle"><span class="glyphicon glyphicon-th-list"></span></a>
+            <a href="#" class="top-download-resume" data-toggle="tooltip" data-placement="top" title="Download resume"><span class="glyphicon glyphicon-cloud-download"></span></a>
+            <a href="#" class="top-print" data-toggle="tooltip" data-placement="top" title="Print resume"><span class="glyphicon glyphicon-print"></span></a>
         </div>
         <!-- end Top icons -->
 
         <!-- Navigation -->
-        <nav id="spy" class="spy hidden-sm hidden-xs">
+        <nav id="spy" class="spy hidden-sm hidden-xs hidden-print">
             <ul>
                 {{#resume.work.length}}
                 <li class="active"><a href="#work-experience">Work experience</a></li>
@@ -63,7 +63,7 @@
         <!-- end Navigation -->
 
         <!-- Navigation for small devices -->
-        <nav id="mini-nav" class="spy visible-sm visible-xs">
+        <nav id="mini-nav" class="spy visible-sm visible-xs hidden-print">
             <ul>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">Menu</a>
@@ -98,18 +98,17 @@
         </nav>
         <!-- end Navigation for small devices -->
 
-        <!-- Header -->
-        <header id="header">
-            <div class="container">
+        <div id="resume" class="container">
+            <header id="header" class="hidden-print">
                 <div class="row">
                     <div class="header-content col-sm-8 col-sm-offset-2 text-center">
                         {{#resume.basics}}
-                        <img src="{{#picture}}{{picture}}{{/picture}}{{^picture}}{{gravatar}}{{/picture}}" class="face" alt="A picture of me">
+                        <img src="{{#picture}}{{picture}}{{/picture}}{{^picture}}{{gravatar}}{{/picture}}" class="face hidden-print" alt="A picture of me">
                         <hr class="empty">
                         <p class="header-name">{{name}}</p>
                         <p class="header-subtitle">{{{summary}}}</p>
-                        <p><a href="mailto:{{email}}" target="_blank">{{email}}</a> &bull; {{phone}} &bull; <a href="mailto:{{website}}" target="_blank">{{website}}</a></p>
-                        <p>
+                        <p><a href="mailto:{{email}}" target="_blank">{{email}}</a> &bull; {{phone}} &bull; <a href="{{website}}" target="_blank">{{website}}</a></p>
+                        <p class="header-profiles hidden-print">
                         {{#profiles}}
                             <a href="{{url}}" class="btn btn-lg btn-default" target="_blank"><span class="fa fa-{{networkIcon}}"></span></a>
                         {{/profiles}}
@@ -117,243 +116,190 @@
                         {{/resume.basics}}
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- end Header -->
+            </header>
 
-        {{#resume.work.length}}
-        <!-- Work experience -->
-        <section id="work-experience" class="work-experience">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-briefcase"></span>Work experience</li>
-                            {{#resume.work}}
-                            <li>
-                                <span class="note">{{startDateReadable}} - {{endDateReadable}}</span>
-                                <p><strong>{{position}}</strong> at <strong><a href="{{website}}" target="_blank">{{company}}</a></strong></p>
-                                <p class="description">{{summary}}</p>
-                                <ul>
-                                {{#highlights}}
-                                    <li>{{.}}</li>
-                                {{/highlights}}
-                                </ul>
-                            </li>
-                            {{/resume.work}}
-                        </ul>
+            {{#resume.work.length}}
+            <section id="work-experience" class="work-experience section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-briefcase"></span>Work experience</li>
+                        {{#resume.work}}
+                        <li>
+                            <span class="note">{{startDateReadable}} - {{endDateReadable}}</span>
+                            <p><strong>{{position}}</strong> at <strong><a href="{{website}}" target="_blank">{{company}}</a></strong></p>
+                            <p class="description">{{summary}}</p>
+                            <ul>
+                            {{#highlights}}
+                                <li>{{.}}</li>
+                            {{/highlights}}
+                            </ul>
+                        </li>
+                        {{/resume.work}}
+                    </ul>
+                </div>
+            </section>
+            {{/resume.work.length}}
+
+            {{#resume.education.length}}
+            <section id="education" class="education section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-book"></span>Education</li>
+                        {{#resume.education}}
+                        <li>
+                            <span class="note has-annotation">{{startDateReadable}} - {{endDateReadable}}</span>
+                            <p>{{#studyType}}<strong>{{studyType}}</strong> at {{/studyType}}<strong><a href="{{website}}" target="_blank">{{institution}}</a></strong></p>
+                            <p class="description">{{area}}</p>
+                        </li>
+                        {{/resume.education}}
+                    </ul>
+                </div>
+            </section>
+            {{/resume.education.length}}
+
+            {{#resume.awards.length}}
+            <section id="awards" class="awards section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-star"></span>Awards</li>
+                        {{#resume.awards}}
+                        <li>
+                            <span class="note">{{dateReadable}}</span> <span class="annotation">{{awarder}}</span>
+                            <p><strong><a href="{{website}}" target="_blank">{{title}}</a></strong></p>
+                            <p class="description">{{summary}}</p>
+                        </li>
+                        {{/resume.awards}}
+                    </ul>
+                </div>
+            </section>
+            {{/resume.awards.length}}
+
+            {{#resume.portfolio.length}}
+            <section id="portfolio" class="portfolio section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-eye-open"></span>Portfolio</li>
+                        <li class="static">
+                            <img src="img/1.jpg" alt="" data-toggle="modal" data-target="#modal1">
+                            <img src="img/2.jpg" alt="" data-toggle="modal" data-target="#modal2">
+                            <img src="img/3.jpg" alt="" data-toggle="modal" data-target="#modal3">
+                            <img src="img/4.jpg" alt="" data-toggle="modal" data-target="#modal4">
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Modal - photos in zoom-->
+            <div id="modal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-box">
+                        <img src="img/1.jpg" alt="" class="img-responsive">
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- end Work experience -->
-        {{/resume.work.length}}
-
-        {{#resume.education.length}}
-        <!-- Education -->
-        <section id="education" class="education">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-book"></span>Education</li>
-                            {{#resume.education}}
-                            <li>
-                                <span class="note has-annotation">{{startDateReadable}} - {{endDateReadable}}</span>
-                                <p><strong>{{studyType}}</strong>{{#studyType}} at {{/studyType}}<strong><a href="{{website}}" target="_blank">{{institution}}</a></strong></p>
-                                <p class="description">{{area}}</p>
-                            </li>
-                            {{/resume.education}}
-                        </ul>
+            <div id="modal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-box">
+                        <img src="img/2.jpg" alt="" class="img-responsive">
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- end Education -->
-        {{/resume.education.length}}
-
-        {{#resume.awards.length}}
-        <!-- Awards -->
-        <section id="awards" class="awards">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-star"></span>Awards</li>
-                            {{#resume.awards}}
-                            <li>
-                                <span class="note">{{dateReadable}}</span> <span class="annotation">{{awarder}}</span>
-                                <p><strong><a href="{{website}}" target="_blank">{{title}}</a></strong></p>
-                                <p class="description">{{summary}}</p>
-                            </li>
-                            {{/resume.awards}}
-                        </ul>
+            <div id="modal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal3" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-box">
+                        <img src="img/3.jpg" alt="" class="img-responsive">
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- end Education -->
-        {{/resume.awards.length}}
-
-        {{#resume.portfolio.length}}
-        <!-- Portfolio -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-eye-open"></span>Portfolio</li>
-                            <li class="static">
-                                <img src="img/1.jpg" alt="" data-toggle="modal" data-target="#modal1">
-                                <img src="img/2.jpg" alt="" data-toggle="modal" data-target="#modal2">
-                                <img src="img/3.jpg" alt="" data-toggle="modal" data-target="#modal3">
-                                <img src="img/4.jpg" alt="" data-toggle="modal" data-target="#modal4">
-                            </li>
-                        </ul>
+            <div id="modal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal4" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-box">
+                        <img src="img/4.jpg" alt="" class="img-responsive">
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- end Portfolio -->
+            <!-- end Modal - photos in zoom-->
+            {{/resume.portfolio.length}}
 
-        <!-- Modal - photos in zoom-->
-        <div id="modal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-box">
-                    <img src="img/1.jpg" alt="" class="img-responsive">
+            {{#resume.skills.length}}
+            <section id="skills" class="skills section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-tasks"></span>Skills</li>
+                        {{#resume.skills}}
+                        <li>
+                            <p><strong class="has-annotation">{{name}}</strong> <span class="annotation">{{level}}</span></p>
+                            <p class="keywords">
+                                {{#keywords}}
+                                <span class="label label-default">{{.}}</span>
+                                {{/keywords}}
+                            </p>
+                        </li>
+                        {{/resume.skills}}
+                    </ul>
                 </div>
-            </div>
+            </section>
+            {{/resume.skills.length}}
+
+            {{#resume.interests.length}}
+            <section id="interests" class="interests section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-heart-empty"></span>Interests</li>
+                        {{#resume.interests}}
+                        <li>
+                            <p><strong class="has-annotation">{{name}}</strong></p>
+                            <p class="keywords">
+                                {{#keywords}}
+                                <span class="label label-default">{{.}}</span>
+                                {{/keywords}}
+                            </p>
+                        </li>
+                        {{/resume.interests}}
+                    </ul>
+                </div>
+            </section>
+            {{/resume.interests.length}}
+
+            {{#resume.languages.length}}
+            <section id="languages" class="languages section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-globe"></span>Languages</li>
+                        {{#resume.languages}}
+                        <li>
+                            <p><strong class="has-annotation">{{language}}</strong> <span class="annotation">{{fluency}}</span></p>
+                        </li>
+                        {{/resume.languages}}
+                    </ul>
+                </div>
+            </section>
+            {{/resume.languages.length}}
+
+            {{#resume.references.length}}
+            <section id="references" class="references section row">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-thumbs-up"></span>References</li>
+                        {{#resume.references}}
+                        <li>
+                            <blockquote><p>{{reference}}</p>
+                                <small>{{name}}</small>
+                            </blockquote>
+                        </li>
+                        {{/resume.references}}
+                    </ul>
+                </div>
+            </section>
+            {{/resume.references.length}}
+
+            <section class="up section row hidden-print">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <ul>
+                        <li class="title"><span class="glyphicon glyphicon-arrow-up"></span>Up</li>
+                    </ul>
+                </div>
+            </section>
         </div>
-        <div id="modal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal2" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-box">
-                    <img src="img/2.jpg" alt="" class="img-responsive">
-                </div>
-            </div>
-        </div>
-        <div id="modal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal3" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-box">
-                    <img src="img/3.jpg" alt="" class="img-responsive">
-                </div>
-            </div>
-        </div>
-        <div id="modal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal4" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-box">
-                    <img src="img/4.jpg" alt="" class="img-responsive">
-                </div>
-            </div>
-        </div>
-        <!-- end Modal - photos in zoom-->
-        {{/resume.portfolio.length}}
-
-        {{#resume.skills.length}}
-        <!-- Skills -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-tasks"></span>Skills</li>
-                            {{#resume.skills}}
-                            <li>
-                                <p><strong class="has-annotation">{{name}}</strong> <span class="annotation">{{level}}</span></p>
-                                <p>
-                                    {{#keywords}}
-                                    <span class="label label-default">{{.}}</span>
-                                    {{/keywords}}
-                                </p>
-                            </li>
-                            {{/resume.skills}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end Skills -->
-        {{/resume.skills.length}}
-
-        {{#resume.interests.length}}
-        <!-- Interests -->
-        <section id="interests" class="interests">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-heart-empty"></span>Interests</li>
-                            {{#resume.interests}}
-                            <li>
-                                <p><strong class="has-annotation">{{name}}</strong></p>
-                                <p>
-                                    {{#keywords}}
-                                    <span class="label label-default">{{.}}</span>
-                                    {{/keywords}}
-                                </p>
-                            </li>
-                            {{/resume.interests}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end Interests -->
-        {{/resume.interests.length}}
-
-        {{#resume.languages.length}}
-        <!-- Languages -->
-        <section id="languages" class="languages">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-globe"></span>Languages</li>
-                            {{#resume.languages}}
-                            <li>
-                                <p><strong class="has-annotation">{{language}}</strong> <span class="annotation">{{fluency}}</span></p>
-                            </li>
-                            {{/resume.languages}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end Languages -->
-        {{/resume.languages.length}}
-
-        {{#resume.references.length}}
-        <!-- References -->
-        <section id="references" class="references">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-thumbs-up"></span>References</li>
-                            {{#resume.references}}
-                            <li>
-                                <blockquote><p>{{reference}}</p>
-                                    <small>{{name}}</small>
-                                </blockquote>
-                            </li>
-                            {{/resume.references}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end References -->
-        {{/resume.references.length}}
-
-        <section class="up">
-            <div class="container">
-                <div class="row">
-                    <div class="contact col-sm-7 col-sm-offset-5">
-                        <ul>
-                            <li class="title"><span class="glyphicon glyphicon-arrow-up"></span>Up</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
     </body>
 </html>

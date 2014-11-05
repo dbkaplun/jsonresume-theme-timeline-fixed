@@ -1,0 +1,42 @@
+@media print {
+  a[href]:after { content: none; }
+
+  #resume {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+    -webkit-column-fill: balance;
+       -moz-column-fill: balance;
+            column-fill: balance;
+
+    .section {
+      /* float: left;
+      width: 45%; */
+      margin: 0;
+      -webkit-break-inside: avoid;
+         -moz-break-inside: avoid;
+              break-inside: avoid;
+
+      & > .col-sm-7.col-sm-offset-5 {
+        width: auto;
+        margin: 0;
+      }
+    }
+
+    .note { margin-bottom: 0; }
+    .title {
+      padding-left: 8px;
+
+      .glyphicon { display: none; }
+    }
+    .label { border: none; }
+    .references blockquote {
+      border: none;
+      padding: none;
+    }
+
+    p { margin: 0; }
+    ul { padding-top: 0; }
+    ul li { padding: 0; }
+  }
+}
