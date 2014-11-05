@@ -102,9 +102,9 @@ gulp.task('build-less', ['build-images', 'build-fonts'], function () {
 });
 gulp.task('build', ['build-js', 'build-less', 'build-fonts']);
 gulp.task('watch', ['build'], function () {
-  gulp.watch(paths.js.concat(['!gulpfile.js']), ['build-js']);
-  gulp.watch(paths.less, ['build-less']);
-  gulp.watch(paths.fonts, ['build-fonts']);
+  gulp.watch(paths.src.js.concat(['!gulpfile.js']), ['build-js']);
+  gulp.watch(paths.src.less, ['build-less']);
+  gulp.watch(paths.src.fonts, ['build-fonts']);
 });
 
 gulp.task('default', ['test', 'build']);
