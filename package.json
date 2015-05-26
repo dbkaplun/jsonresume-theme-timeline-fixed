@@ -7,7 +7,7 @@
     "test": "gulp test"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "gravatar": "^1.0.6",
     "gulp": "^3.8.8",
