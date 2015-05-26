@@ -1,10 +1,10 @@
 {
-  "name": "jsonresume-theme-timeline-beardtree",
+  "name": "jsonresume-theme-timeline-fixed",
   "main": "index.js",
   "version": "0.0.3",
-  "homepage": "https://github.com/beardtree/jsonresume-theme-timeline-beardtree",
+  "homepage": "https://github.com/dbkaplun/jsonresume-theme-timeline-fixed",
   "authors": [
-    "Dan Kaplun <dan@beardtree.com>"
+    "Dan Kaplun <dbkaplun@gmail.com>"
   ],
   "license": "ISC",
   "ignore": [
